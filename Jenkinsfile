@@ -30,7 +30,6 @@ pipeline {
           sh "echo PASSWORD     = $PASSWORD"
           sh "echo WORKSPACE    = ${env.WORKSPACE}"
           sh "/usr/bin/sshpass -p $PASSWORD /usr/bin/scp -o StrictHostKeyChecking=no -r ${env.WORKSPACE}/* $USERNAME@wordpress.grange.etu.lmdsio.com:/private"
-          sh "/usr/bin/sshpass -p $PASSWORD /usr/bin/ssh -o StrictHostKeyChecking=no $USERNAME@wordpress.grange.etu.lmdsio.com 'cd /private ; composer update'"
         }
       }
     }
