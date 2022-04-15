@@ -17,7 +17,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar+ bvn"></span>
                 </button>
-                <a class="navbar-brand" href="">Laboratoire médicament</a>
+                <a class="navbar-brand" href="">Laboratoireeeeeeeeeee médicament</a>
             </div>
             @if (Session::get('id') == 0)
                 <div class="collapse navbar-collapse" id="navbar-collapse-target">
