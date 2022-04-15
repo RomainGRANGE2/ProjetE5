@@ -43,7 +43,7 @@
                     <?php $disabled = 'disabled'?>
                 @endif
             @endforeach
-            <option value="{{$ligne->id_presentation}}" <?php echo $selected.$disabled ?>>{{$ligne->lib_presentation}}</option>
+            <option value="{{$ligne->id_presentation}}" <?php echo $selected ?><?php echo $disabled?>>{{$ligne->lib_presentation}}</option>
         @endforeach
     </select>
     <label>Quantité Formuler</label>
