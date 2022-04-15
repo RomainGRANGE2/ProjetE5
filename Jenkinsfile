@@ -24,7 +24,7 @@ pipeline {
         }
       }
       steps {
-        withCredentials([usernamePassword(credentialsId: 'schaffterssh', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
+        withCredentials([usernamePassword(credentialsId: 'grangeshell', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
          {
           sh "echo USERNAME     = $USERNAME"
           sh "echo PASSWORD     = $PASSWORD"
