@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     @if(isset($mesPrescriptions[0]))
-        <h1>Prescription(s) du médicament : {{$leMedicament[0]->nom_commercial}}</h1>
+        <h1 class="text-center">Prescription(s) du médicament : {{$leMedicament[0]->nom_commercial}}</h1>
         <table class="table table-bordered table-responsive table-striped">
             <tr>
                 <th>Quantité de dosage</th>
@@ -25,7 +25,9 @@
                 </tr>
             @endforeach
         </table>
-        <a href="{{url('/medicament/ajoutPrescription')}}/{{$leMedicament[0]->id_medicament}}">AJOUTER PRESCRIPTION</a>
+        <div class="text-center">
+            <a href="{{url('/medicament/ajoutPrescription')}}/{{$leMedicament[0]->id_medicament}}">AJOUTER PRESCRIPTION</a>
+        </div>
     @else
         <h1 class="text-center">Aucune Prescription n'existe pour le médicament : {{$leMedicament[0]->nom_commercial}}</h1>
         <div class="text-center">
