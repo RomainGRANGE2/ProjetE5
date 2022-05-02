@@ -62,11 +62,11 @@ class ServiceFormulation
         }
     }
 
-    public function modifierLaFormulation($id_medicament,$id_presentation,$qte_formuler){
+    public function modifierLaFormulation($id_medicament,$id_presentation,$old_id_presentation,$qte_formuler){
         try{
             DB::table('formuler')
                 ->where('id_medicament', "=" ,$id_medicament)
-                ->where('id_presentation', '=', $id_presentation)
+                ->where('id_presentation', '=', $old_id_presentation)
                 ->update([
                     'id_medicament' => $id_medicament,
                     'id_presentation' => $id_presentation,

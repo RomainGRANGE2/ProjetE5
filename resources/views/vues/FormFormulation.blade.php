@@ -30,20 +30,21 @@
     <h1>Modification d'une Formulation pour le médicament : {{$mesFormulations[0]->nom_commercial}}</h1>
     {{ Form::open(array('url' => 'medicament/modifierLaFormulation')) }}
     <input type="hidden" value="{{$mesFormulations[0]->id_medicament}}" name="id_medicament">
+    <input type="hidden" value="{{$mesFormulations[0]->id_presentation}}" name="old_id_presentation">
     <label>Présentation</label>
     <select name="id_presentation">
         @foreach($mesPresentation as $ligne)
             <?php $disabled = ''?>
             <?php $selected = ''?>
             @if(($ligne->id_presentation) == ($laPresentation[0]->id_presentation) )
-            <?php $selected = 'selected '?>
+            <?php $selected = 'selected'?>
             @endif
             @foreach($mesFormulations as $formule)
                 @if(($ligne->id_presentation) == ($formule->id_presentation))
                     <?php $disabled = 'disabled'?>
                 @endif
             @endforeach
-            <option value="{{$ligne->id_presentation}}" <?php echo $selected ?><?php echo $disabled?>>{{$ligne->lib_presentation}}</option>
+            <option value="{{$ligne->id_presentation}}" <?php echo $selected." ".$disabled ?>>{{$ligne->lib_presentation}}</option>
         @endforeach
     </select>
     <label>Quantité Formuler</label>

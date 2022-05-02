@@ -161,11 +161,15 @@ class FormulationController
                 Session::forget('erreur');
                 $id_medicament = Request::input('id_medicament');
                 $id_presentation = Request::input('id_presentation');
+                $old_id_presentation = Request::input('old_id_presentation');
+                if ($id_presentation == null){
+                    $id_presentation = $old_id_presentation;
+                }
                 $qte_formuler = Request::input('qte_formuler');
                 $unServiceFormulation = new ServiceFormulation();
                 $unServiceMedicament = new ServiceMedicament();
                 $unServicePresentation = new ServicePresentation();
-                if ($qte_formuler <= 0){
+                 if ($qte_formuler <= 0){
                     $mauvaiseqte = "La quantité doit être supérieur à 0.";
                     $mesPresentation = $unServicePresentation->getLesPresentation();
                     $mesFormulations = $unServiceFormulation->getLesFormulations($id_medicament);
@@ -174,7 +178,7 @@ class FormulationController
                     $laFormulation = $unServiceFormulation->getLaFormulation($id_medicament,$id_presentation);
                     return view('vues.FormFormulation', compact('mauvaiseqte','leMedicament','mesPresentation','mesFormulations',"laPresentation","laFormulation"));
                 }
-                $ajoutFormulation = $unServiceFormulation->modifierLaFormulation($id_medicament,$id_presentation,$qte_formuler);
+                $ajoutFormulation = $unServiceFormulation->modifierLaFormulation($id_medicament,$id_presentation,$old_id_presentation,$qte_formuler);
                 $mesFormulations = $unServiceFormulation->getLesFormulations($id_medicament);
                 $leMedicament = $unServiceMedicament->getleMedoc($id_medicament);
                 return view('vues.listeFormulations', compact('leMedicament','mesFormulations','erreur'));
