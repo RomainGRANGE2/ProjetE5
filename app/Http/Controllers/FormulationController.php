@@ -103,8 +103,8 @@ class FormulationController
                 $unServicePresentation = new ServicePresentation();
                 $mesFormulations = $unServiceFormulation->getLesFormulations($id_medicament);
                 $leMedicament = $unServiceMedicament->getleMedoc($id_medicament);
-                if ($qte_formuler <= 0){
-                    $mauvaiseqte = "La quantité doit être supérieur à 0.";
+                if (($qte_formuler <= 0) or ($qte_formuler > 10000)){
+                    $mauvaiseqte = "La quantité doit être supérieur à 0 et plus petite que 10 000";
                     $mesPresentation = $unServicePresentation->getLesPresentation();
                     return view('vues.FormFormulation', compact('mauvaiseqte','leMedicament','mesPresentation','mesFormulations'));
                 }
@@ -169,8 +169,8 @@ class FormulationController
                 $unServiceFormulation = new ServiceFormulation();
                 $unServiceMedicament = new ServiceMedicament();
                 $unServicePresentation = new ServicePresentation();
-                 if ($qte_formuler <= 0){
-                    $mauvaiseqte = "La quantité doit être supérieur à 0.";
+                 if (($qte_formuler <= 0) or ($qte_formuler > 10000)){
+                    $mauvaiseqte = "La quantité doit être supérieur à 0 et plus petite que 10 000.";
                     $mesPresentation = $unServicePresentation->getLesPresentation();
                     $mesFormulations = $unServiceFormulation->getLesFormulations($id_medicament);
                     $leMedicament = $unServiceMedicament->getleMedoc($id_medicament);
