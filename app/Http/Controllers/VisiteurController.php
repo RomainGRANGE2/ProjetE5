@@ -34,9 +34,10 @@ class VisiteurController extends Controller
 
             if($connected){
                 if (Session::get('type') === 'C') {
-                    return view('vues/homePracticien');
-                }else{
                     return view('home');
+                }else{
+                    $erreur = "Login ou mot de passe inconnu";
+                    return view('vues/formLogin',compact('erreur'));
                 }
             }else{
                 $erreur = "Login ou mot de passe inconnu";
