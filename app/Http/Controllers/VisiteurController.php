@@ -33,7 +33,7 @@ class VisiteurController extends Controller
             $connected = $unVisiteur->login($login,$pwd);
 
             if($connected){
-                if (Session::get('type') === 'P') {
+                if (Session::get('type') === 'C') {
                     return view('vues/homePracticien');
                 }else{
                     return view('home');
