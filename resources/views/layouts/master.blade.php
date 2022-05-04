@@ -38,6 +38,7 @@
             @endif
         </div><!--/.container-fluid -->
     </nav>
+    <h1>ROMAIN GRANGE</h1>
 </div>
 <div class="container">
     @yield('content')
