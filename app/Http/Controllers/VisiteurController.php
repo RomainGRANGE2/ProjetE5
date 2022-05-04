@@ -36,7 +36,7 @@ class VisiteurController extends Controller
                 if (Session::get('type') === 'C') {
                     return view('home');
                 }else{
-                    $erreur = "Login ou mot de passe inconnu";
+                    $erreur = "Vous n'avez pas les droits pour accéder à cette plateforme.";
                     return view('vues/formLogin',compact('erreur'));
                 }
             }else{
