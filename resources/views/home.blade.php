@@ -38,6 +38,7 @@
             @endif
         </div><!--/.container-fluid -->
     </nav>
+    <h1 class="text-align">Projet Gestion Des Médicaments de Romain GRANGE</h1>
 </div>
 <div class="container">
     @yield('content')
